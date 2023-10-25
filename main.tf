@@ -18,7 +18,7 @@ locals {
     for e in var.env : e.name => e.value if e.value != null
   }
   dynamic_env = {
-    for k, v in local.from_env : v => data.external.env_value[k].result["value"]
+    for k, v in local.from_env : k => data.external.env_value[k].result["value"]
   }
 }
 
